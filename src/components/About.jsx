@@ -1,66 +1,161 @@
-import React from "react";
-import Tilt from "react-tilt";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaFileDownload,
+} from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 import { styles } from "../styles";
-import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
 
-const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-      >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
-
-        <h3 className='text-white text-[20px] font-bold text-center'>
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  </Tilt>
-);
+import profileImage from "../assets/profile.jpg";
 
 const About = () => {
+  // 🔹 Typewriter Logic
+  const roles = ["Full Stack Developer", "AI Engineer"];
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentFullText = roles[roleIndex];
+
+      if (isDeleting) {
+        setDisplayText(prev => prev.substring(0, prev.length - 1));
+        setTypingSpeed(50);
+      } else {
+        setDisplayText(prev => currentFullText.substring(0, prev.length + 1));
+        setTypingSpeed(150);
+      }
+
+      if (!isDeleting && displayText === currentFullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && displayText === "") {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, roleIndex, typingSpeed]);
+
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
-      </motion.div>
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-12 mt-16">
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
-      </motion.p>
+      {/* LEFT CONTENT */}
+      <div className="flex-1 animate-slide-in-left">
+        <div>
+          <h2 className={`${styles.sectionHeadText} text-[42px]`}>
+            Hi, I’m <span className="text-[#915EFF]">Uma Devi</span>
+          </h2>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
+          {/* 🔹 Changing Role Text with Typwriter effect */}
+          <div className="h-[40px] mt-2 flex items-center">
+            <h3 className="text-[26px] font-bold text-[#915EFF] border-r-4 border-[#915EFF] pr-2 animate-cursor">
+              {displayText}
+            </h3>
+          </div>
+        </div>
+
+        {/* 🔹 Updated Professional Objective */}
+        <p
+          className="mt-6 text-secondary text-[18px] max-w-3xl leading-[32px] animate-slide-up"
+        >
+          I am passionate about continuously enhancing my technical expertise
+          and contributing to organizations that foster innovation, creativity,
+          and forward-thinking solutions. I aim to develop impactful systems
+          that combine scalable web technologies with intelligent machine
+          learning models to deliver real-world value.
+        </p>
+
+        {/* SOCIAL LINKS */}
+        <div
+          className="mt-8 flex gap-6 items-center animate-slide-up"
+          style={{ animationDelay: '0.2s' }}
+        >
+          <a
+            href="https://github.com/Umadevim-ML"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-[24px] hover:text-[#915EFF] transition-colors"
+          >
+            <FaGithub />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/umadevim23/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-[24px] hover:text-[#915EFF] transition-colors"
+          >
+            <FaLinkedin />
+          </a>
+
+          <a
+            href="https://leetcode.com/u/UmaDeviM/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-[24px] hover:text-[#915EFF] transition-colors"
+          >
+            <SiLeetcode />
+          </a>
+
+          <a
+            href="mailto:umadevim.23ai@gmail.com"
+            className="text-white text-[24px] hover:text-[#915EFF] transition-colors"
+          >
+            <FaEnvelope />
+          </a>
+        </div>
+
+        {/* RESUME BUTTON */}
+        <div
+          className="mt-6 animate-slide-up"
+          style={{ animationDelay: '0.3s' }}
+        >
+          <a
+            href="/Uma_Devi_Resume.pdf"
+            download
+            className="inline-flex items-center gap-2 bg-[#915EFF] px-6 py-3 rounded-lg text-white text-sm font-medium hover:bg-[#7a4de8] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-[#915EFF]/20"
+          >
+            <FaFileDownload /> Download Resume
+          </a>
+        </div>
       </div>
-    </>
+
+      {/* RIGHT IMAGE */}
+      <div
+        className="flex justify-center items-center animate-slide-in-right"
+      >
+        <div className="relative group">
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#915EFF] to-[#4e31aa] rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
+          <img
+            src={profileImage}
+            alt="Uma Devi"
+            className="relative w-[260px] h-[260px] rounded-full object-cover border-4 border-[#915EFF] shadow-lg transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes cursor-blink {
+          0% { border-color: transparent }
+          50% { border-color: #915EFF }
+          100% { border-color: transparent }
+        }
+        .animate-cursor {
+          animation: cursor-blink 0.8s infinite;
+        }
+      `}</style>
+    </div>
   );
 };
 
 export default SectionWrapper(About, "about");
+
+

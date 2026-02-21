@@ -1,11 +1,8 @@
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
 
 const Contact = () => {
   const formRef = useRef();
@@ -37,9 +34,9 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Uma Devi",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "umadevim.23ai@gmail.com",
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -68,9 +65,8 @@ const Contact = () => {
     <div
       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
     >
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+      <div
+        className='flex-[0.75] glass-morphism p-8 rounded-2xl animate-slide-in-left'
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -88,7 +84,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-[#915EFF] transition-all'
             />
           </label>
           <label className='flex flex-col'>
@@ -99,7 +95,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-[#915EFF] transition-all'
             />
           </label>
           <label className='flex flex-col'>
@@ -110,27 +106,46 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-[#915EFF] transition-all'
             />
           </label>
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            className='bg-[#915EFF] py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary hover:scale-105 active:scale-95 transition-all'
           >
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
-      </motion.div>
+      </div>
 
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+      <div
+        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] flex justify-center items-center animate-slide-in-right'
       >
-        <EarthCanvas />
-      </motion.div>
+        <div className="relative w-full h-full flex justify-center items-center">
+          {/* 3D Visual Replacement for Earth */}
+          <div className="w-64 h-64 bg-gradient-to-tr from-[#915EFF] to-[#4e31aa] rounded-full animate-float shadow-[0_0_50px_rgba(145,94,255,0.5)] flex justify-center items-center">
+            <div className="w-48 h-48 border-4 border-white/20 rounded-full animate-spin-slow" />
+            <div className="absolute w-full h-full border-2 border-[#915EFF]/30 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
+            <div className="absolute inset-0 flex justify-center items-center">
+              <span className="text-white text-6xl opacity-20 font-black">UD</span>
+            </div>
+          </div>
+
+          {/* Added some floating cards for "3D" feel */}
+          <div className="absolute top-10 right-10 p-4 glass-morphism rounded-xl animate-float opacity-80" style={{ animationDelay: '1s' }}>
+            <p className="text-[#915EFF] font-bold">Location</p>
+            <p className="text-white text-sm">India</p>
+          </div>
+          <div className="absolute bottom-20 left-10 p-4 glass-morphism rounded-xl animate-float opacity-80" style={{ animationDelay: '2s' }}>
+            <p className="text-[#915EFF] font-bold">Email</p>
+            <p className="text-white text-sm">umadevim.23ai@gmail.com</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default SectionWrapper(Contact, "contact");
+

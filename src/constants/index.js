@@ -4,262 +4,272 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
   reactjs,
-  redux,
   tailwind,
   nodejs,
   mongodb,
   git,
   figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
   carrent,
   jobit,
   tripguide,
-  threejs,
+  express,
+
+  bootstrap,
+  vscode,
+  postman,
+  github1,
+  visualmath,
+  starbot,
+  codats,
+  canva,
+  powerbi,
+  powerbiproj
 } from "../assets";
 
+import nptel2 from "../assets/nptel2.png";
+import nvidia from "../assets/nvidia.png";
+import mongodb1 from "../assets/mongodb1.png";
+import nptel from "../assets/nptel.png";
+
+import bih from "../assets/bih.png";
+import ibm from "../assets/ibm.png";
+import academic from "../assets/academic.png";
+
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "certifications", title: "Certifications" },
+  { id: "projects", title: "Projects" },
+  { id: "achievements", title: "Achievements" },
+  { id: "contact", title: "Contact" },
 ];
 
 const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Content Creator",
-    icon: creator,
-  },
+  { title: "Full-Stack Web Developer", icon: web },
+  { title: "React Native Developer", icon: mobile },
+  { title: "Backend Developer", icon: backend },
+  { title: "AI/ML Engineer", icon: creator },
 ];
 
 const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+  { name: "HTML 5", icon: html },
+  { name: "CSS 3", icon: css },
+  { name: "JavaScript", icon: javascript },
+  { name: "React JS", icon: reactjs },
+  { name: "Tailwind CSS", icon: tailwind },
+  { name: "Node JS", icon: nodejs },
+  { name: "MongoDB", icon: mongodb },
+  { name: "git", icon: git },
+  { name: "Bootstrap", icon: bootstrap },
+  { name: "Express.js", icon: express },
+  { name: "VS Code", icon: vscode },
+  { name: "Postman", icon: postman },
+  { name: "GitHub", icon: github1 },
+  { name: "Canva", icon: canva },
+  //{ name: "Power BI", icon: powerbi },
+
 ];
 
-const experiences = [
+const certifications = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+    title: "MongoDB Certified Associate Developer",
+    company_name: "MongoDB, Inc.",
+    icon: mongodb1,
+    iconBg: "#47A248",
+    date: "May 10, 2025",
+    description: [
+      "Validated core knowledge of MongoDB data modeling and CRUD operations.",
+      "Demonstrated practical understanding of NoSQL database design principles.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+    title: "Getting Started with Deep Learning",
+    company_name: "NVIDIA",
+    icon: nvidia,
+    iconBg: "#76B900",
+    date: "October 5, 2025",
+    description: [
+      "Introduced to neural networks, deep learning workflows, and model training.",
+      "Hands-on exposure to tensors, loss functions, and optimization techniques.",
+      "Built foundational understanding for AI and computer vision applications.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+    title: "Responsible & Safe AI Systems",
+    company_name: "NPTEL (IIIT Hyderabad)",
+    icon: nptel2,
+    iconBg: "#FF9933",
+    date: "Jul–Oct 2025",
+    description: [
+      "Explored ethical, legal, and societal implications of AI systems.",
+      "Studied fairness, accountability, transparency, and AI governance.",
+      "Developed awareness of building trustworthy and safe AI solutions.",
     ],
   },
   {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+    title: "Affective Computing",
+    company_name: "NPTEL (IIT Delhi)",
+    icon: nptel,
+    iconBg: "#FF9933",
+    date: "Jan–Apr 2025",
+    description: [
+      "Focused on emotion recognition and human-centered AI systems.",
+      "Learned techniques for analyzing affective signals from data.",
+      "Applied machine learning concepts to emotion-aware applications.",
     ],
   },
 ];
 
-const testimonials = [
+export const achievements = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    title: "Best Project Presentation & Team Collaboration Award",
+    date: "April 2025",
+    event: "BYTS INDIA HACKATHON (BIH) 1.0 – Artificial Intelligence Track",
+    venue: "Kongu Engineering College",
+    image: bih,
   },
   {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    title: "Third Place – GenAI Hackathon",
+    date: "September 2025",
+    event: "CognitiveX GenAI 24-Hour Hackathon",
+    venue: "IBM SkillsBuild",
+    image: ibm,
   },
   {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    title: "Merit-Based Academic Excellence Award",
+    date: "March 2025",
+    event: "Awarded for Outstanding Academic Performance",
+    venue: "Kongu Engineering College",
+    image: academic,
   },
+  {
+    title: "3rd Prize – Kaggle Clash, KEC",
+    date: "2024",
+    event: "Built and assessed ML models, delivering improved accuracy.",
+    venue: "Kongu Engineering College"
+  },
+
 ];
 
 const projects = [
+
+
   {
-    name: "Car Rent",
+    name: "CODATS — Code Analysis and Threat Scanning System",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Developed a multi-language vulnerability analysis system with inline detection, contextual insights, and fix recommendations. Integrated the solution as a VS Code extension to deliver real-time security feedback within the coding workflow.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "vscode-extension", color: "blue-text-gradient" },
+      { name: "security", color: "green-text-gradient" },
+      { name: "code-analysis", color: "pink-text-gradient" },
+      { name: "python", color: "orange-text-gradient" },
+      { name: "javascript", color: "blue-text-gradient" },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: codats,
+    source_code_link: "https://github.com/Umadevim-ML/codats.git",
+    date: "Jan 2026",
   },
   {
-    name: "Job IT",
+    name: "SplitEase – Smart Expense Splitter App",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Developed a full-stack MERN application that splits group expenses based on each user’s contribution, with user authentication, group management, expense tracking, automated balance reports, and interactive dashboards for transparent and fair expense sharing.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "nodejs", color: "green-text-gradient" },
+      { name: "express", color: "orange-text-gradient" },
+      { name: "mongodb", color: "pink-text-gradient" },
+      { name: "javascript", color: "green-text-gradient" },
+      { name: "tailwind", color: "blue-text-gradient" },
     ],
     image: tripguide,
     source_code_link: "https://github.com/",
+    date: "Oct 2025",
+  },
+
+  {
+    name: "ClauseWise – AI Legal Document Analyzer",
+    description:
+      "Implemented AI and NLP techniques to analyze legal documents, extract key clauses, classify contracts, and summarize content using Large Language Models (LLMs).",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "nlp", color: "green-text-gradient" },
+      { name: "llm", color: "pink-text-gradient" },
+      { name: "ai", color: "orange-text-gradient" },
+      { name: "transformers", color: "blue-text-gradient" },
+      { name: "machine-learning", color: "green-text-gradient" },
+    ],
+    image: jobit,
+    source_code_link: "https://github.com/Umadevim-ML/genai-ibm-hackathon.git",
+    date: "Sep 2025",
+  },
+  {
+    name: "VisualMath – AI for Smart Learning",
+    description:
+      "Created an AI-powered learning platform that recognizes math problems using OCR, applies image processing, generates NLP-based explanations, and provides interactive visual learning outputs.",
+    tags: [
+      { name: "computer-vision", color: "blue-text-gradient" },
+      { name: "ocr", color: "green-text-gradient" },
+      { name: "deep-learning", color: "pink-text-gradient" },
+      { name: "ai", color: "orange-text-gradient" },
+      { name: "python", color: "blue-text-gradient" },
+      { name: "tensorflow", color: "green-text-gradient" },
+    ],
+    image: visualmath,
+    source_code_link: "https://github.com/Umadevim-ML/visualize-math.git",
+    date: "Apr 2025",
+  },
+
+  {
+    name: "StarRAG Bot — Multimodal Document & Image RAG System",
+    description:
+      "Built a full-stack multimodal RAG system that enables conversational access to documents and images using OCR and local language models. Features include document/image upload, intelligent text extraction, FAISS-powered vector search, context-aware AI responses, and secure local processing.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "python", color: "green-text-gradient" },
+      { name: "flask", color: "pink-text-gradient" },
+      { name: "ocr", color: "orange-text-gradient" },
+      { name: "faiss", color: "blue-text-gradient" },
+      { name: "llm", color: "green-text-gradient" },
+      { name: "ai", color: "pink-text-gradient" },
+      { name: "mongodb", color: "orange-text-gradient" },
+    ],
+    image: starbot,
+    source_code_link: "https://github.com/Umadevim-ML/starRAG-bot.git",
+    date: "Feb 2026",
+  },
+  {
+    name: "Doctor Appointment Booking System",
+    description:
+      "Built a full-stack MERN web application for managing doctor appointments with role-based authentication, real-time booking, appointment scheduling, and efficient database management.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "nodejs", color: "green-text-gradient" },
+      { name: "express", color: "orange-text-gradient" },
+      { name: "mongodb", color: "pink-text-gradient" },
+      { name: "tailwind", color: "blue-text-gradient" },
+    ],
+    image: carrent,
+    source_code_link: "https://github.com/Umadevim-ML/doctor-appointment.git",
+    date: "Mar 2025",
+  },
+  {
+    name: "AI Jobs Market Analytics Dashboard",
+    description:
+      "Built an interactive Power BI dashboard to analyze AI hiring trends, salary distribution by experience level, company size segmentation, and industry demand, delivering clear and actionable market insights.",
+    tags: [
+      { name: "powerbi", color: "blue-text-gradient" },
+      { name: "data-analytics", color: "green-text-gradient" },
+      { name: "business-intelligence", color: "pink-text-gradient" },
+      { name: "data-visualization", color: "orange-text-gradient" },
+      { name: "market-analysis", color: "blue-text-gradient" },
+    ],
+    image: powerbiproj,
+    source_code_link: "",
+    date: "Jan 2026",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+
+export { services, technologies, certifications, projects };
