@@ -1,4 +1,4 @@
-import React from "react";
+import Tilt from "react-parallax-tilt";
 import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
@@ -7,9 +7,16 @@ import { projects } from "../constants";
 const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => {
   return (
     <div className="sm:w-[360px] w-full animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
-      <div
-        className='bg-tertiary p-5 rounded-2xl h-full flex flex-col card-3d glass-morphism'
+      <Tilt
+        glareEnable={true}
+        glareMaxOpacity={0.45}
+        scale={1.12}
+        transitionSpeed={450}
+        tiltMaxAngleX={15}
+        tiltMaxAngleY={15}
+        className='bg-tertiary p-5 rounded-2xl h-full flex flex-col glass-morphism cursor-pointer'
       >
+
         <div className='relative w-full h-[230px] flex-shrink-0 group overflow-hidden rounded-2xl'>
           <img
             src={image}
@@ -45,8 +52,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link }
             </p>
           ))}
         </div>
-      </div>
-    </div>
+      </Tilt>
+    </div >
   );
 };
 
