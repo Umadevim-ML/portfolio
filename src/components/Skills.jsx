@@ -29,13 +29,15 @@ const getIcon = (name) => {
   const tech = technologies.find(t => {
     const tName = t.name.toLowerCase();
     const sName = name.toLowerCase();
-    return tName.includes(sName) || sName.includes(tName.replace(" js", "").replace(" 5", "").replace(" 3", ""));
+    // Better matching to avoid single letter matches like "Communication" matching "C" icon
+    if (tName.length <= 2 && sName !== tName) return false;
+    return tName === sName || tName.includes(sName) || sName.includes(tName.replace(" js", "").replace(" 5", "").replace(" 3", ""));
   });
   return tech ? tech.icon : null;
 };
 
-const SkillCard = ({ name, index }) => {
-  const icon = getIcon(name);
+const SkillCard = ({ name, index, showIcon = true }) => {
+  const icon = showIcon ? getIcon(name) : null;
 
   return (
     <div
@@ -108,7 +110,7 @@ const Skills = () => {
         </h3>
         <div className="flex flex-wrap gap-4">
           {softSkills.map((skill, index) => (
-            <SkillCard key={skill} name={skill} index={index + technicalSkills.length + tools.length} />
+            <SkillCard key={skill} name={skill} index={index + technicalSkills.length + tools.length} showIcon={false} />
           ))}
         </div>
       </div>
@@ -120,7 +122,7 @@ const Skills = () => {
         </h3>
         <div className="flex flex-wrap gap-4">
           {languages.map((lang, index) => (
-            <SkillCard key={lang} name={lang} index={index + technicalSkills.length + tools.length + softSkills.length} />
+            <SkillCard key={lang} name={lang} index={index + technicalSkills.length + tools.length + softSkills.length} showIcon={false} />
           ))}
         </div>
       </div>

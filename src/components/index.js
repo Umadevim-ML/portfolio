@@ -5,7 +5,7 @@ import Projects from "./Projects";
 import Achievements from "./Achievements";
 import Education from './Education';
 import Contact from "./Contact";
-import CanvasLoader from "./Loader";
+import Skills from "./Skills";
 
 export {
   Navbar,
@@ -14,8 +14,8 @@ export {
   Projects,
   Achievements,
   Contact,
-  CanvasLoader,
-  Education
+  Education,
+  Skills
 };
 
 

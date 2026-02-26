@@ -11,7 +11,6 @@ import {
   nodejs,
   mongodb,
   git,
-  figma,
   carrent,
   jobit,
   tripguide,
@@ -20,19 +19,22 @@ import {
   bootstrap,
   vscode,
   postman,
-  github1,
+  github_new,
+  canva,
+  powerbi,
+  java,
+  c_lang,
+  mysql,
+  python,
   visualmath,
   starbot,
   codats,
-  canva,
-  powerbi,
   powerbiproj
 } from "../assets";
 
-import nptel2 from "../assets/nptel2.png";
 import nvidia from "../assets/nvidia.png";
 import mongodb1 from "../assets/mongodb1.png";
-import nptel from "../assets/nptel.png";
+
 
 import bih from "../assets/bih.png";
 import ibm from "../assets/ibm.png";
@@ -40,6 +42,8 @@ import academic from "../assets/academic.png";
 
 export const navLinks = [
   { id: "about", title: "About" },
+  { id: "education", title: "Education" },
+  { id: "skills", title: "Skills" },
   { id: "certifications", title: "Certifications" },
   { id: "projects", title: "Projects" },
   { id: "achievements", title: "Achievements" },
@@ -66,10 +70,14 @@ const technologies = [
   { name: "Express.js", icon: express },
   { name: "VS Code", icon: vscode },
   { name: "Postman", icon: postman },
-  { name: "GitHub", icon: github1 },
+  { name: "GitHub", icon: github_new },
   { name: "Canva", icon: canva },
-  //{ name: "Power BI", icon: powerbi },
-
+  { name: "Power BI", icon: powerbi },
+  { name: "Java", icon: java },
+  { name: "C", icon: c_lang },
+  { name: "MySQL", icon: mysql },
+  { name: "SQL", icon: mysql },
+  { name: "Python", icon: python },
 ];
 
 const certifications = [
@@ -77,8 +85,10 @@ const certifications = [
     title: "MongoDB Certified Associate Developer",
     company_name: "MongoDB, Inc.",
     icon: mongodb1,
-    iconBg: "#47A248",
+    iconBg: "#E8F5E9",
+    color: "#2E7D32",
     date: "May 10, 2025",
+    link: "https://drive.google.com/file/d/1I_5EyW1x7Hp7aQGVEpIqzJvKcrSx9beJ/view?usp=sharing", // User should update or I keep as placeholder
     description: [
       "Validated core knowledge of MongoDB data modeling and CRUD operations.",
       "Demonstrated practical understanding of NoSQL database design principles.",
@@ -88,36 +98,13 @@ const certifications = [
     title: "Getting Started with Deep Learning",
     company_name: "NVIDIA",
     icon: nvidia,
-    iconBg: "#76B900",
+    iconBg: "#E3F2FD",
+    color: "#1976D2",
     date: "October 5, 2025",
+    link: "https://drive.google.com/file/d/1JoPViDglhnI5f9bUWLKKxMQH5ZBhzGvq/view?usp=sharing", // User should update or I keep as placeholder
     description: [
       "Introduced to neural networks, deep learning workflows, and model training.",
       "Hands-on exposure to tensors, loss functions, and optimization techniques.",
-      "Built foundational understanding for AI and computer vision applications.",
-    ],
-  },
-  {
-    title: "Responsible & Safe AI Systems",
-    company_name: "NPTEL (IIIT Hyderabad)",
-    icon: nptel2,
-    iconBg: "#FF9933",
-    date: "Jul–Oct 2025",
-    description: [
-      "Explored ethical, legal, and societal implications of AI systems.",
-      "Studied fairness, accountability, transparency, and AI governance.",
-      "Developed awareness of building trustworthy and safe AI solutions.",
-    ],
-  },
-  {
-    title: "Affective Computing",
-    company_name: "NPTEL (IIT Delhi)",
-    icon: nptel,
-    iconBg: "#FF9933",
-    date: "Jan–Apr 2025",
-    description: [
-      "Focused on emotion recognition and human-centered AI systems.",
-      "Learned techniques for analyzing affective signals from data.",
-      "Applied machine learning concepts to emotion-aware applications.",
     ],
   },
 ];
@@ -168,7 +155,7 @@ const projects = [
       { name: "javascript", color: "blue-text-gradient" },
     ],
     image: codats,
-    source_code_link: "https://github.com/Umadevim-ML/codats.git",
+    source_code_link: "https://github.com/Umadevim-ML/CodeVulnarability",
     date: "Jan 2026",
   },
   {
@@ -184,7 +171,7 @@ const projects = [
       { name: "tailwind", color: "blue-text-gradient" },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Umadevim-ML/expense-splitter",
     date: "Oct 2025",
   },
 
@@ -217,7 +204,7 @@ const projects = [
       { name: "tensorflow", color: "green-text-gradient" },
     ],
     image: visualmath,
-    source_code_link: "https://github.com/Umadevim-ML/visualize-math.git",
+    source_code_link: "https://github.com/Umadevim-ML/visualize-math",
     date: "Apr 2025",
   },
 
@@ -236,7 +223,7 @@ const projects = [
       { name: "mongodb", color: "orange-text-gradient" },
     ],
     image: starbot,
-    source_code_link: "https://github.com/Umadevim-ML/starRAG-bot.git",
+    source_code_link: "https://github.com/Umadevim-ML/multimodal-ragbot",
     date: "Feb 2026",
   },
   {
@@ -266,7 +253,7 @@ const projects = [
       { name: "market-analysis", color: "blue-text-gradient" },
     ],
     image: powerbiproj,
-    source_code_link: "",
+    source_code_link: "https://github.com/Umadevim-ML/jobTrendAnalysis",
     date: "Jan 2026",
   },
 ];

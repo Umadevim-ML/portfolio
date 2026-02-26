@@ -1,27 +1,18 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
-import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 
 const Contact = () => {
   const formRef = useRef();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -45,102 +36,115 @@ const Contact = () => {
         () => {
           setLoading(false);
           alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+          setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
           console.error(error);
-
           alert("Ahh, something went wrong. Please try again.");
         }
       );
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
-      <div
-        className='flex-[0.75] glass-morphism p-8 rounded-2xl animate-slide-in-left'
-      >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+    <div className='flex flex-col items-center gap-4 pb-10 w-full animate-slide-up'>
+      {/* Section Header */}
+      <div className='text-center'>
+        <h2 className='text-white font-bold text-[40px]'>Contact Me</h2>
+        <p className='text-secondary text-[16px] font-medium tracking-wider mt-1'>Let's keep in touch</p>
+      </div>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
-        >
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
+      {/* Main Card */}
+      <div className='flex flex-col md:flex-row w-full max-w-[860px] bg-[#0d1333] rounded-[18px] overflow-hidden shadow-2xl'>
+        {/* LEFT — Info Panel */}
+        <div className='flex-1 bg-[#0d1333] p-9 md:p-11 flex flex-col gap-7'>
+          <h3 className='text-[#f97316] text-[24px] font-bold'>Get In Touch</h3>
+
+          {/* Social Icons */}
+          <div className='flex gap-5 items-center'>
+            <a
+              href='https://github.com/Umadevim-ML'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-white text-[22px] hover:text-[#f97316] hover:-translate-y-1 transition-all'
+              aria-label='GitHub'
+            >
+              <FaGithub />
+            </a>
+            <a
+              href='https://www.linkedin.com/in/umadevim23/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-white text-[22px] hover:text-[#f97316] hover:-translate-y-1 transition-all'
+              aria-label='LinkedIn'
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href='https://leetcode.com/u/UmaDeviM/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-white text-[22px] hover:text-[#f97316] hover:-translate-y-1 transition-all'
+              aria-label='LeetCode'
+            >
+              <SiLeetcode />
+            </a>
+          </div>
+
+          {/* Contact Details */}
+          <ul className='list-none flex flex-col gap-[18px] m-0 p-0'>
+            <li className='flex items-center gap-[14px] text-secondary text-[15px]'>
+              <FaPhone className='text-white text-[16px] flex-shrink-0' />
+              <span>+91 9362767061</span>
+            </li>
+            <li className='flex items-center gap-[14px] text-secondary text-[15px]'>
+              <FaEnvelope className='text-white text-[16px] flex-shrink-0' />
+              <span>umadevim.23ai@gmail.com</span>
+            </li>
+            <li className='flex items-center gap-[14px] text-secondary text-[15px]'>
+              <FaMapMarkerAlt className='text-white text-[16px] flex-shrink-0' />
+              <span>Erode, TamilNadu, India</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* RIGHT — Form Panel */}
+        <div className='flex-[1.2] bg-[#f1f3f8] p-10 flex items-center justify-center'>
+          <form ref={formRef} onSubmit={handleSubmit} className='w-full flex flex-col gap-4'>
             <input
               type='text'
               name='name'
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-[#915EFF] transition-all'
+              placeholder='Name'
+              className='w-full px-4 py-3 border border-[#dce0ec] rounded-lg bg-white text-[#1a1a2e] text-[14px] outline-none focus:border-[#f97316] focus:ring-2 focus:ring-[#f97316]/20 transition-all'
+              required
             />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your email</span>
             <input
               type='email'
               name='email'
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-[#915EFF] transition-all'
+              placeholder='Email'
+              className='w-full px-4 py-3 border border-[#dce0ec] rounded-lg bg-white text-[#1a1a2e] text-[14px] outline-none focus:border-[#f97316] focus:ring-2 focus:ring-[#f97316]/20 transition-all'
+              required
             />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
             <textarea
-              rows={7}
               name='message'
+              rows={5}
               value={form.message}
               onChange={handleChange}
-              placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium focus:ring-2 focus:ring-[#915EFF] transition-all'
+              placeholder='Message'
+              className='w-full px-4 py-3 border border-[#dce0ec] rounded-lg bg-white text-[#1a1a2e] text-[14px] outline-none focus:border-[#f97316] focus:ring-2 focus:ring-[#f97316]/20 transition-all resize-none'
+              required
             />
-          </label>
-
-          <button
-            type='submit'
-            className='bg-[#915EFF] py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary hover:scale-105 active:scale-95 transition-all'
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
-        </form>
-      </div>
-
-      <div
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px] flex justify-center items-center animate-slide-in-right'
-      >
-        <div className="relative w-full h-full flex justify-center items-center">
-          {/* 3D Visual Replacement for Earth */}
-          <div className="w-64 h-64 bg-gradient-to-tr from-[#915EFF] to-[#4e31aa] rounded-full animate-float shadow-[0_0_50px_rgba(145,94,255,0.5)] flex justify-center items-center">
-            <div className="w-48 h-48 border-4 border-white/20 rounded-full animate-spin-slow" />
-            <div className="absolute w-full h-full border-2 border-[#915EFF]/30 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
-            <div className="absolute inset-0 flex justify-center items-center">
-              <span className="text-white text-6xl opacity-20 font-black">UD</span>
-            </div>
-          </div>
-
-          {/* Added some floating cards for "3D" feel */}
-          <div className="absolute top-10 right-10 p-4 glass-morphism rounded-xl animate-float opacity-80" style={{ animationDelay: '1s' }}>
-            <p className="text-[#915EFF] font-bold">Location</p>
-            <p className="text-white text-sm">India</p>
-          </div>
-          <div className="absolute bottom-20 left-10 p-4 glass-morphism rounded-xl animate-float opacity-80" style={{ animationDelay: '2s' }}>
-            <p className="text-[#915EFF] font-bold">Email</p>
-            <p className="text-white text-sm">umadevim.23ai@gmail.com</p>
-          </div>
+            <button
+              type='submit'
+              className='md:self-end self-stretch bg-[#f97316] text-white text-[15px] font-semibold py-3 px-10 rounded-lg hover:bg-[#ea6c0a] hover:-translate-y-0.5 shadow-lg shadow-[#f97316]/30 transition-all active:translate-y-0'
+            >
+              {loading ? "Sending..." : "Send"}
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -148,4 +152,3 @@ const Contact = () => {
 };
 
 export default SectionWrapper(Contact, "contact");
-

@@ -14,7 +14,7 @@ import profileImage from "../assets/profile.jpg";
 
 const About = () => {
   // 🔹 Typewriter Logic
-  const roles = ["Full Stack Developer", "AI Engineer"];
+  const roles = ["Full Stack Developer", "ML Engineer"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -56,7 +56,7 @@ const About = () => {
 
           {/* 🔹 Changing Role Text with Typwriter effect */}
           <div className="h-[40px] mt-2 flex items-center">
-            <h3 className="text-[26px] font-bold text-[#915EFF] border-r-4 border-[#915EFF] pr-2 animate-cursor">
+            <h3 className="text-[26px] font-bold text-[#915EFF]">
               {displayText}
             </h3>
           </div>
@@ -142,16 +142,7 @@ const About = () => {
         </div>
       </div>
 
-      <style>{`
-        @keyframes cursor-blink {
-          0% { border-color: transparent }
-          50% { border-color: #915EFF }
-          100% { border-color: transparent }
-        }
-        .animate-cursor {
-          animation: cursor-blink 0.8s infinite;
-        }
-      `}</style>
+
     </div>
   );
 };
