@@ -19,17 +19,17 @@ import {
   bootstrap,
   vscode,
   postman,
-  github_new,
   canva,
   powerbi,
   java,
-  c_lang,
+  c,
   mysql,
   python,
   visualmath,
   starbot,
   codats,
-  powerbiproj
+  powerbiproj,
+  github
 } from "../assets";
 
 import nvidia from "../assets/nvidia.png";
@@ -70,11 +70,11 @@ const technologies = [
   { name: "Express.js", icon: express },
   { name: "VS Code", icon: vscode },
   { name: "Postman", icon: postman },
-  { name: "GitHub", icon: github_new },
+  { name: "GitHub", icon: github },
   { name: "Canva", icon: canva },
   { name: "Power BI", icon: powerbi },
   { name: "Java", icon: java },
-  { name: "C", icon: c_lang },
+  { name: "c", icon: c },
   { name: "MySQL", icon: mysql },
   { name: "SQL", icon: mysql },
   { name: "Python", icon: python },

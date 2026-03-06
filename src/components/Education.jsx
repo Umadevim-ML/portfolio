@@ -1,131 +1,195 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaGraduationCap, FaCalendarAlt, FaUniversity } from "react-icons/fa";
+import { MdSchool } from "react-icons/md";
 
 const Education = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const educationData = [
+    {
+      id: 1,
+      degree: "B.Tech in Artificial Intelligence & Machine Learning",
+      institution: "Kongu Engineering College",
+      year: "2023 – 2027",
+      score: "CGPA: 9.02*",
+      icon: <FaGraduationCap />
+    },
+    {
+      id: 2,
+      degree: "HSC – Computer Science",
+      institution: "Joy Matric Higher Secondary School",
+      year: "2023",
+      score: "91.8%",
+      icon: <MdSchool />
+    },
+    {
+      id: 3,
+      degree: "SSLC",
+      institution: "Joy Matric Higher Secondary School",
+      year: "2021",
+      score: null,
+      icon: <FaUniversity />
+    }
+  ];
+
   return (
-    <>
-      <section id="education" className="edu-section relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#915EFF] to-transparent opacity-20" />
+    <section id="education" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-primary overflow-hidden">
+      
+      {/* Subtle Background Gradient - Matching About page style */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#915EFF]/5 to-transparent" />
+      
+      {/* Animated Background Lines - Adjusted opacity to match About page subtlety */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#915EFF]/10 to-transparent animate-pulse" />
+        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#915EFF]/10 to-transparent animate-pulse delay-1000" />
+      </div>
 
-        <div className="edu-wrapper relative z-10">
-          <div className="animate-slide-in-left">
-            <h2 className="edu-heading">Education</h2>
-            <p className="text-secondary text-center -mt-10 mb-16">My academic foundation and learning journey</p>
-          </div>
+      <div className="relative z-10 max-w-5xl mx-auto">
+        
+        {/* Section Header - Matching About page style */}
+        <div className="text-center mb-20">
+          <span className="text-[#915EFF] text-sm tracking-widest uppercase mb-3 block">
+            Academic Journey
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Education
+          </h2>
+          <div className="w-16 h-0.5 bg-[#915EFF] mx-auto rounded-full" />
+        </div>
 
-          <div className="edu-grid">
-            {/* B.Tech */}
-            <div className="edu-card glass-morphism card-3d animate-slide-up">
-              <span className="edu-year">2023 – 2027</span>
-              <h3 className="text-[#915EFF]">B.Tech in Artificial Intelligence & Machine Learning</h3>
-              <p className="edu-college">Kongu Engineering College</p>
-              <div className="edu-score">CGPA: 9.02*</div>
-              <div className="absolute top-0 right-0 p-4 opacity-10">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" /></svg>
-              </div>
-            </div>
+        {/* Timeline Container */}
+        <div className="relative">
+          
+          {/* Central Line - More subtle like About page gradients */}
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-transparent via-[#915EFF]/20 to-transparent" />
 
-            {/* HSC */}
-            <div className="edu-card glass-morphism card-3d animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <span className="edu-year">2023</span>
-              <h3 className="text-[#915EFF]">HSC – Computer Science</h3>
-              <p className="edu-college">Joy Matric Higher Secondary School</p>
-              <div className="edu-score">Percentage: 91.8%</div>
-            </div>
+          {/* Education Items */}
+          <div className="space-y-16">
+            {educationData.map((edu, index) => {
+              const isEven = index % 2 === 0;
+              const isActive = activeIndex === index;
 
-            {/* SSLC */}
-            <div className="edu-card glass-morphism card-3d animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              <span className="edu-year">2021</span>
-              <h3 className="text-[#915EFF]">Secondary School Leaving Certificate (SSLC)</h3>
-              <p className="edu-college">Joy Matric Higher Secondary School</p>
-            </div>
+              return (
+                <div
+                  key={edu.id}
+                  className={`relative flex flex-col md:flex-row items-start gap-8
+                             ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onMouseLeave={() => setActiveIndex(null)}
+                >
+                  {/* Timeline Dot with Pulse - Updated to match About page accent */}
+                  <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-0 md:top-1/2">
+                    <div className={`relative w-4 h-4 rounded-full bg-[#915EFF] transition-all duration-500
+                                  ${isActive ? 'scale-150' : 'scale-100'}`}>
+                      <div className={`absolute inset-0 rounded-full bg-[#915EFF] animate-ping opacity-75 
+                                    ${isActive ? 'animation-iteration-count-infinite' : 'opacity-0'}`} />
+                    </div>
+                  </div>
+
+                  {/* Content Card - Updated to match About page card style */}
+                  <div className={`w-full md:w-[calc(50%-2rem)] pl-8 md:pl-0
+                                 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
+                    
+                    <div className={`group relative bg-[#151030] rounded-2xl p-8 
+                                  border border-[#915EFF]/10 hover:border-[#915EFF]/30
+                                  transition-all duration-500 ease-out
+                                  ${isActive ? 'transform -translate-y-2 shadow-2xl shadow-[#915EFF]/20' : 'shadow-xl'}`}>
+                      
+                      {/* Glass Overlay - Matching About page gradient style */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#915EFF]/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      
+                      {/* Decorative Corner - Updated purple gradient */}
+                      <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
+                        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#915EFF]/20 to-transparent transform rotate-45 translate-x-8 -translate-y-8 group-hover:translate-x-6 group-hover:-translate-y-6 transition-transform duration-700" />
+                      </div>
+
+                      {/* Year Badge - Matching About page button style */}
+                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#915EFF]/10 rounded-full mb-4">
+                        <FaCalendarAlt className="text-[#915EFF] text-xs" />
+                        <span className="text-[#915EFF] text-sm font-medium">{edu.year}</span>
+                      </div>
+
+                      {/* Degree with Icon - Updated icon color */}
+                      <div className="flex items-start gap-3 mb-3">
+                        <div className={`text-[#915EFF] text-xl transition-transform duration-500 
+                                      ${isActive ? 'rotate-12 scale-110' : ''}`}>
+                          {edu.icon}
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold text-white flex-1 leading-tight">
+                          {edu.degree}
+                        </h3>
+                      </div>
+
+                      {/* Institution - Using text-secondary to match About page */}
+                      <p className="text-[#aaa6c3] text-base mb-4 pl-8">
+                        {edu.institution}
+                      </p>
+
+                      {/* Score - Updated to match About page button style */}
+                      {edu.score && (
+                        <div className="pl-8">
+                          <span className="inline-block px-4 py-2 bg-[#1a1a2e] rounded-lg 
+                                       text-[#915EFF] font-semibold text-sm
+                                       border border-[#915EFF]/20 group-hover:border-[#915EFF]/50 
+                                       transition-all duration-300">
+                            {edu.score}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Hover Indicator Line - Matching purple theme */}
+                      <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 
+                                    bg-gradient-to-r from-transparent via-[#915EFF] to-transparent 
+                                    group-hover:w-3/4 transition-all duration-700`} />
+                    </div>
+                  </div>
+
+                  {/* Empty div for layout balance */}
+                  <div className="hidden md:block w-[calc(50%-2rem)]" />
+                </div>
+              );
+            })}
           </div>
         </div>
-      </section>
+      </div>
 
+      {/* Custom CSS for animations */}
       <style>{`
-        .edu-section {
-          padding: 100px 8%;
-          background: #050816;
-          color: #ffffff;
-          text-align: center;
-        }
-
-        .edu-wrapper {
-          max-width: 1100px;
-          margin: auto;
-        }
-
-        .edu-heading {
-          font-size: 3rem;
-          font-weight: 700;
-          margin-bottom: 50px;
-          letter-spacing: 1px;
-          color: white;
-        }
-
-        .edu-grid {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 30px;
-        }
-
-        .edu-card {
-          width: 100%;
-          max-width: 700px;
-          padding: 35px 30px;
-          border-radius: 20px;
-          text-align: left;
-          position: relative;
-        }
-
-        .edu-year {
-          display: inline-block;
-          padding: 6px 16px;
-          margin-bottom: 15px;
-          font-size: 0.85rem;
-          border-radius: 25px;
-          background: #915EFF;
-          font-weight: bold;
-          color: white;
-          box-shadow: 0 0 10px rgba(145,94,255,0.3);
-        }
-
-        .edu-card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 10px;
-          font-weight: 700;
-        }
-
-        .edu-college {
-          color: #aaa;
-          margin-bottom: 15px;
-          font-size: 1rem;
-          font-weight: 500;
-        }
-
-        .edu-score {
-          display: inline-block;
-          padding: 8px 18px;
-          background: rgba(145, 94, 255, 0.1);
-          border: 1px solid rgba(145, 94, 255, 0.2);
-          border-radius: 10px;
-          font-weight: 600;
-          color: #915EFF;
-        }
-
-        @media (max-width: 768px) {
-          .edu-heading {
-            font-size: 2.5rem;
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
           }
-
-          .edu-card {
-            padding: 25px 20px;
+          to {
+            opacity: 1;
+            transform: translateX(0);
           }
+        }
+        
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        .edu-card-enter {
+          animation: slideInLeft 0.6s ease-out forwards;
+        }
+        
+        .edu-card-enter-even {
+          animation: slideInRight 0.6s ease-out forwards;
+        }
+        
+        .delay-1000 {
+          animation-delay: 1000ms;
         }
       `}</style>
-    </>
+    </section>
   );
 };
 

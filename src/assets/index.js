@@ -3,7 +3,7 @@ import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
-import github from "./github.png";
+import github from "./tech/github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -19,11 +19,11 @@ import express from "./tech/express.png";
 import bootstrap from "./tech/bootstrap.png";
 import vscode from "./tech/vscode.png";
 import postman from "./tech/postman.png";
-import github_new from "./tech/github.png";
+
 import canva from "./tech/canva.png";
 import powerbi from "./tech/powerbi.png";
 import java from "./tech/Java-PNG-Photos.jpg";
-import c_lang from "./tech/c_programming.png";
+import c from "./tech/c.png";
 import mysql from "./tech/mysql-icon.png";
 import python from "./tech/python_programming.png";
 
@@ -64,11 +64,10 @@ export {
   bootstrap,
   vscode,
   postman,
-  github_new,
   canva,
   powerbi,
   java,
-  c_lang,
+  c,
   mysql,
   python
 };
